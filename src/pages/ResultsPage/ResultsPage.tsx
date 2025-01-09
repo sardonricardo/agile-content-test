@@ -1,39 +1,9 @@
-import React, { useEffect, useState } from "react";
-import { useLocation } from "react-router-dom";
-import { DataService } from "../../services/DataService";
-import { FilterService } from "../../services/FilterService";
+import React from "react";
 import styles from "./results-page.module.css";
+import { useSearch } from "../../context/SearchContext";
 
 const ResultsPage: React.FC = () => {
-	const location = useLocation();
-	const { searchTerm } = location.state as { searchTerm: string };
-
-	const [data, setData] = useState<
-		{
-			id: number;
-			title: string;
-			type: string;
-			description: string;
-			image: string;
-			url: string;
-		}[]
-	>([]);
-	const [filteredData, setFilteredData] = useState<typeof data>([]);
-	const [loading, setLoading] = useState<boolean>(true);
-
-	useEffect(() => {
-		const fetchData = () => {
-			setLoading(true);
-			setTimeout(() => {
-				const generatedData = DataService.generateData();
-				setData(generatedData);
-				const results = FilterService.filterData(generatedData, searchTerm);
-				setFilteredData(results);
-				setLoading(false);
-			}, 2000);
-		};
-		fetchData();
-	}, [searchTerm]);
+	const { loading, filteredData } = useSearch();
 
 	return (
 		<div className='results-page'>
