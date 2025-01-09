@@ -1,12 +1,14 @@
-.results_page {
-	width: 60vw;
-}
-
-.results_list h2 {
+.results_container .results_list h2 {
 	margin-top: 10px;
 	margin-bottom: 10px;
 }
 
+.results_container {
+	width: 60%;
+}
+
 .content {
+	display: flex;
 	padding-left: 100px;
+	width: 100vw;
 }

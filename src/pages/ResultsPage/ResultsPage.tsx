@@ -1,10 +1,21 @@
-import React from "react";
-import styles from "./results-page.module.css";
+import React, { useState } from "react";
 import { useSearch } from "../../context/SearchContext";
+import styles from "./results-page.module.css";
 import ListItem from "../../components/ListItem/ListItem";
+import Card from "../../components/Card/Card";
+
+interface ResultItem {
+	id: number;
+	image: string;
+	url: string;
+	title: string;
+	type: string;
+	description: string;
+}
 
 const ResultsPage: React.FC = () => {
-	const { loading, filteredData } = useSearch();
+	const { filteredData, loading } = useSearch();
+	const [selectedItem, setSelectedItem] = useState<ResultItem | null>(null);
 
 	return (
 		<div className={styles.results_page}>
@@ -14,15 +25,19 @@ const ResultsPage: React.FC = () => {
 				) : filteredData.length === 0 ? (
 					<p>No results found.</p>
 				) : (
-					<ul className={styles.results_list}>
-						{filteredData.map((item) => (
-							<ListItem
-								key={item.id}
-								item={item}
-							/>
-						))}
-					</ul>
+					<div className={styles.results_container}>
+						<ul className={styles.results_list}>
+							{filteredData.map((item) => (
+								<ListItem
+									key={item.id}
+									item={item}
+									onClick={() => setSelectedItem(item)}
+								/>
+							))}
+						</ul>
+					</div>
 				)}
+				{selectedItem && <Card item={selectedItem} />}
 			</main>
 		</div>
 	);

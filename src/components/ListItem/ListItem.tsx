@@ -1,3 +1,4 @@
+import React from "react";
 import styles from "./list-item.module.css";
 
 interface ListItemProps {
@@ -6,15 +7,16 @@ interface ListItemProps {
 		title: string;
 		description: string;
 		url: string;
-		// image: string;
+		image: string;
 	};
+	onClick: () => void;
 }
 
-const ListItem: React.FC<ListItemProps> = ({ item }) => {
+const ListItem: React.FC<ListItemProps> = ({ item, onClick }) => {
 	return (
 		<li
-			key={item.id}
-			className={styles.result_item}>
+			className={styles.result_item}
+			onClick={onClick}>
 			<a
 				href={item.url}
 				target='_blank'
@@ -23,10 +25,6 @@ const ListItem: React.FC<ListItemProps> = ({ item }) => {
 			</a>
 			<h2>{item.title}</h2>
 			<p>{item.description}</p>
-			{/* <img
-        src={item.image}
-        alt={item.title}
-    /> */}
 		</li>
 	);
 };
