@@ -24,6 +24,7 @@ button {
 	align-items: center;
 	border-radius: 50px;
 	border: 1.5px solid #ddd;
+	background-color: white;
 }
 
 .active {

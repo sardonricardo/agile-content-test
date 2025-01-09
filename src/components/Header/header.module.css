@@ -6,10 +6,16 @@
 	background-color: #f8f8f8;
 }
 
+.header_wrapper_left {
+	display: flex;
+	flex-direction: row;
+}
+
 .header_left {
 	display: flex;
 	flex-direction: row;
 	align-items: center;
+	gap: 10px;
 }
 
 .header_left h1 {

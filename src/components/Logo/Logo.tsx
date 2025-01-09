@@ -10,6 +10,7 @@ const Logo: React.FC<LogoProps> = ({ size }) => {
 		<div
 			className={styles.logo}
 			style={{
+				margin: 0,
 				fontSize:
 					size === "small" ? "1.5rem" : size === "medium" ? "2rem" : "3rem",
 			}}>

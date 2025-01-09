@@ -13,24 +13,27 @@ const Header: React.FC = () => {
 
 	return (
 		<header className={styles.header}>
-			{location.pathname === "/results" ? (
-				<Logo />
-			) : (
-				<div className={styles.header_left}>
-					<h1>Agile Content</h1>
-					<span>Frontend test</span>
-				</div>
-			)}
+			<div className={styles.header_wrapper_left}>
+				{location.pathname === "/results" ? (
+					<Logo size='medium' />
+				) : (
+					<div className={styles.header_left}>
+						<h1>Agile Content</h1>
+						<span>Frontend test</span>
+					</div>
+				)}
 
-			{location.pathname === "/results" && (
-				<SearchInput
-					searchTerm={searchTerm}
-					setSearchTerm={setSearchTerm}
-					isActive={isActive}
-					setIsActive={setIsActive}
-					handleKeyPress={handleKeyPress}
-				/>
-			)}
+				{location.pathname === "/results" && (
+					<SearchInput
+						searchTerm={searchTerm}
+						setSearchTerm={setSearchTerm}
+						isActive={isActive}
+						setIsActive={setIsActive}
+						handleKeyPress={handleKeyPress}
+					/>
+				)}
+			</div>
+
 			<div className={styles.header_right}>
 				<div className={styles.grid_icon}>
 					<TfiLayoutGrid3Alt color='rgb(123 117 117)' />

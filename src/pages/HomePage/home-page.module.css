@@ -1,5 +1,12 @@
 .home_page {
-	text-align: center;
+	height: 70vh;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+}
+
+.search_container button {
+	margin-top: 20px;
 }
 
 .search_container {

@@ -10,11 +10,12 @@ interface SearchInputProps {
 	isActive: boolean;
 	setIsActive: (value: boolean) => void;
 	handleKeyPress?: (e: React.KeyboardEvent<HTMLInputElement>) => void;
-	viewMode?: "navbar" | "menu";
+	size?: number;
 }
 
 const SearchInput: React.FC<SearchInputProps> = ({
 	searchTerm,
+	size,
 	setSearchTerm,
 	isActive,
 	setIsActive,
@@ -22,6 +23,7 @@ const SearchInput: React.FC<SearchInputProps> = ({
 }) => {
 	return (
 		<div
+			style={{ scale: size }}
 			className={`${styles.input_wrapper} ${isActive ? styles.active : ""}`}
 			onFocus={() => setIsActive(true)}
 			onBlur={() => setIsActive(false)}>

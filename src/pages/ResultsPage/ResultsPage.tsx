@@ -49,10 +49,10 @@ const ResultsPage: React.FC = () => {
 								className='result-item'>
 								<h2>{item.title}</h2>
 								<p>{item.description}</p>
-								<img
+								{/* <img
 									src={item.image}
 									alt={item.title}
-								/>
+								/> */}
 								<a
 									href={item.url}
 									target='_blank'
