@@ -1,0 +1,25 @@
+.logo {
+	font-family: "Poppins", sans-serif;
+	font-size: 4rem;
+	font-weight: bold;
+	margin-bottom: 20px;
+	display: flex;
+	justify-content: center;
+	gap: 5px;
+}
+
+.logo .blue {
+	color: #4285f4;
+}
+
+.logo .red {
+	color: #ea4335;
+}
+
+.logo .yellow {
+	color: #fbbc05;
+}
+
+.logo .green {
+	color: #34a853;
+}

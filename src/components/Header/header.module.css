@@ -1,0 +1,42 @@
+.header {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	padding: 10px 20px;
+	background-color: #f8f8f8;
+}
+
+.header_left {
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+}
+
+.header_left h1 {
+	font-size: 1.5rem;
+	margin: 0;
+	color: #333;
+}
+
+.header_left span {
+	font-size: 0.9rem;
+	color: #666;
+}
+
+.header_right {
+	display: flex;
+	align-items: center;
+	gap: 15px;
+}
+
+.grid_icon {
+	font-size: 1.2rem;
+	cursor: pointer;
+}
+
+.user_avatar {
+	width: 40px;
+	height: 40px;
+	border-radius: 50%;
+	border: 1px solid #ccc;
+}

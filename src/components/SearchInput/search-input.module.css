@@ -1,0 +1,35 @@
+input {
+	width: 500px;
+	padding: 12px 20px;
+	font-size: 1.2rem;
+	border: 0.5px solid #ddd;
+	border-left: none;
+	border-right: none;
+	outline: none;
+	transition: all 0.3s ease-in-out;
+}
+
+button {
+	padding: 12px 25px;
+	font-size: 1rem;
+	background-color: #f8f8f8;
+	border: none;
+	cursor: pointer;
+	transition: background-color 0.3s ease;
+}
+
+.input_wrapper {
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	border-radius: 50px;
+	border: 1.5px solid #ddd;
+}
+
+.active {
+}
+
+.search_icon,
+.delete_icon {
+	padding: 10px;
+}
