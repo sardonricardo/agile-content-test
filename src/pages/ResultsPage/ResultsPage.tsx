@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useLocation } from "react-router-dom";
 import { DataService } from "../../services/DataService";
 import { FilterService } from "../../services/FilterService";
+import styles from "./results-page.module.css";
 
 const ResultsPage: React.FC = () => {
 	const location = useLocation();
@@ -36,29 +37,29 @@ const ResultsPage: React.FC = () => {
 
 	return (
 		<div className='results-page'>
-			<main className='content'>
+			<main className={styles.content}>
 				{loading ? (
 					<p>Loading...</p>
 				) : filteredData.length === 0 ? (
 					<p>No results found.</p>
 				) : (
-					<ul className='results-list'>
+					<ul className={styles.results_list}>
 						{filteredData.map((item) => (
 							<li
 								key={item.id}
-								className='result-item'>
+								className={styles.result_item}>
+								<a
+									href={item.url}
+									target='_blank'
+									rel='noopener noreferrer'>
+									{item.url}
+								</a>
 								<h2>{item.title}</h2>
 								<p>{item.description}</p>
 								{/* <img
 									src={item.image}
 									alt={item.title}
 								/> */}
-								<a
-									href={item.url}
-									target='_blank'
-									rel='noopener noreferrer'>
-									Learn more
-								</a>
 							</li>
 						))}
 					</ul>
