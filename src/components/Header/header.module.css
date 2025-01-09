@@ -9,6 +9,7 @@
 .header_wrapper_left {
 	display: flex;
 	flex-direction: row;
+	gap: 20px;
 }
 
 .header_left {

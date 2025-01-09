@@ -1,6 +1,7 @@
 import React from "react";
 import styles from "./results-page.module.css";
 import { useSearch } from "../../context/SearchContext";
+import ListItem from "../../components/ListItem/ListItem";
 
 const ResultsPage: React.FC = () => {
 	const { loading, filteredData } = useSearch();
@@ -15,22 +16,10 @@ const ResultsPage: React.FC = () => {
 				) : (
 					<ul className={styles.results_list}>
 						{filteredData.map((item) => (
-							<li
+							<ListItem
 								key={item.id}
-								className={styles.result_item}>
-								<a
-									href={item.url}
-									target='_blank'
-									rel='noopener noreferrer'>
-									{item.url}
-								</a>
-								<h2>{item.title}</h2>
-								<p>{item.description}</p>
-								{/* <img
-									src={item.image}
-									alt={item.title}
-								/> */}
-							</li>
+								item={item}
+							/>
 						))}
 					</ul>
 				)}

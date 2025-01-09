@@ -26,7 +26,6 @@ export const SearchProvider: React.FC<{ children: React.ReactNode }> = ({
 	children,
 }) => {
 	const navigate = useNavigate();
-
 	const [data, setData] = useState<
 		{
 			id: number;
