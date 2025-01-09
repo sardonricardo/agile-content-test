@@ -1,5 +1,4 @@
 input {
-	width: 500px;
 	padding: 12px 20px;
 	font-size: 1.2rem;
 	border: 0.5px solid #ddd;
@@ -7,6 +6,7 @@ input {
 	border-right: none;
 	outline: none;
 	transition: all 0.3s ease-in-out;
+	width: 85%;
 }
 
 button {
@@ -25,6 +25,7 @@ button {
 	border-radius: 50px;
 	border: 1.5px solid #ddd;
 	background-color: white;
+	width: 35vw;
 }
 
 .active {
@@ -33,4 +34,5 @@ button {
 .search_icon,
 .delete_icon {
 	padding: 10px;
+	width: 5%;
 }

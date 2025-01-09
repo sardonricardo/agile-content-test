@@ -7,7 +7,7 @@ const ResultsPage: React.FC = () => {
 	const { loading, filteredData } = useSearch();
 
 	return (
-		<div className='results-page'>
+		<div className={styles.results_page}>
 			<main className={styles.content}>
 				{loading ? (
 					<p>Loading...</p>

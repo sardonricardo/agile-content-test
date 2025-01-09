@@ -40,7 +40,7 @@ const SearchInput: React.FC<SearchInputProps> = ({
 			<div
 				className={styles.delete_icon}
 				onClick={() => setSearchTerm("")}>
-				<RxCross2 size={18} />
+				{isActive && <RxCross2 size={18} />}
 			</div>
 		</div>
 	);
