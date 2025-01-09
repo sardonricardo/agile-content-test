@@ -4,7 +4,7 @@ import { useLocation } from "react-router-dom";
 import { TfiLayoutGrid3Alt } from "react-icons/tfi";
 import Logo from "../Logo/Logo";
 import SearchInput from "../SearchInput/SearchInput";
-import styles from "./Header.module.css";
+import styles from "./header.module.css";
 
 const Header: React.FC = () => {
 	const { searchTerm, handleKeyPress, setSearchTerm } = useSearch();
