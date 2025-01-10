@@ -18,6 +18,16 @@ interface SearchContextProps {
 		image: string;
 		url: string;
 	}[];
+	selectedItem: ResultItem | null;
+	setSelectedItem: (item: ResultItem | null) => void;
+}
+interface ResultItem {
+	id: number;
+	image: string;
+	url: string;
+	title: string;
+	type: string;
+	description: string;
 }
 
 const SearchContext = createContext<SearchContextProps | undefined>(undefined);
@@ -39,8 +49,10 @@ export const SearchProvider: React.FC<{ children: React.ReactNode }> = ({
 	const [filteredData, setFilteredData] = useState<typeof data>([]);
 	const [loading, setLoading] = useState<boolean>(true);
 	const [searchTerm, setSearchTerm] = useState<string>("");
+	const [selectedItem, setSelectedItem] = useState<ResultItem | null>(null);
 
 	const fetchData = () => {
+		setSelectedItem(null);
 		setLoading(true);
 		setTimeout(() => {
 			const generatedData = DataService.generateData();
@@ -74,6 +86,8 @@ export const SearchProvider: React.FC<{ children: React.ReactNode }> = ({
 				fetchData,
 				loading,
 				filteredData,
+				selectedItem,
+				setSelectedItem,
 			}}>
 			{children}
 		</SearchContext.Provider>

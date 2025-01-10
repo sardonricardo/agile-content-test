@@ -4,6 +4,7 @@
 	align-items: center;
 	padding: 10px 20px;
 	background-color: #f8f8f8;
+	border-bottom: 1.5px solid #ddd;
 }
 
 .header_wrapper_left {

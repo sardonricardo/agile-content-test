@@ -1,6 +1,9 @@
 .result_details {
-	width: 40%;
-	padding-right: 10rem;
+	width: 30%;
+	height: 30%;
+	padding: 1rem;
+	border: 1px solid #ddd;
+	margin-top: 40px;
 }
 
 .result_details img {

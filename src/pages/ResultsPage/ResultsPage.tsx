@@ -1,21 +1,12 @@
-import React, { useState } from "react";
+import React from "react";
 import { useSearch } from "../../context/SearchContext";
 import styles from "./results-page.module.css";
 import ListItem from "../../components/ListItem/ListItem";
 import Card from "../../components/Card/Card";
 
-interface ResultItem {
-	id: number;
-	image: string;
-	url: string;
-	title: string;
-	type: string;
-	description: string;
-}
-
 const ResultsPage: React.FC = () => {
-	const { filteredData, loading } = useSearch();
-	const [selectedItem, setSelectedItem] = useState<ResultItem | null>(null);
+	const { filteredData, loading, setSelectedItem, selectedItem } = useSearch();
+	//const [selectedItem, setSelectedItem] = useState<ResultItem | null>(null);
 
 	return (
 		<div className={styles.results_page}>
