@@ -7,11 +7,20 @@ interface CardProps {
 		url: string;
 		image: string;
 	};
+	onClose?: () => void;
 }
 
-const Card: React.FC<CardProps> = ({ item }) => {
+const Card: React.FC<CardProps> = ({ item, onClose }) => {
+	const isModal = !!onClose;
 	return (
-		<div className={styles.result_details}>
+		<div className={`${styles.result_details} ${isModal ? styles.modal : ""}`}>
+			{/* {onClose && (
+				<button
+					onClick={onClose}
+					className={styles.close_button}>
+					X
+				</button>
+			)} */}
 			<img
 				src={item.image}
 				alt={item.title}

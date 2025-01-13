@@ -1,4 +1,4 @@
-import React, { createContext, useContext, useState } from "react";
+import React, { createContext, useContext, useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { DataService } from "../services/DataService";
 import { FilterService } from "../services/FilterService";
@@ -20,6 +20,7 @@ interface SearchContextProps {
 	}[];
 	selectedItem: ResultItem | null;
 	setSelectedItem: (item: ResultItem | null) => void;
+	isSmallScreen: boolean;
 }
 interface ResultItem {
 	id: number;
@@ -51,6 +52,10 @@ export const SearchProvider: React.FC<{ children: React.ReactNode }> = ({
 	const [searchTerm, setSearchTerm] = useState<string>("");
 	const [selectedItem, setSelectedItem] = useState<ResultItem | null>(null);
 
+	const [isSmallScreen, setIsSmallScreen] = useState<boolean>(
+		window.innerWidth < 768
+	);
+
 	const fetchData = () => {
 		setSelectedItem(null);
 		setLoading(true);
@@ -76,6 +81,15 @@ export const SearchProvider: React.FC<{ children: React.ReactNode }> = ({
 		}
 	};
 
+	useEffect(() => {
+		const handleResize = () => {
+			setIsSmallScreen(window.innerWidth < 768);
+		};
+
+		window.addEventListener("resize", handleResize);
+		return () => window.removeEventListener("resize", handleResize);
+	}, []);
+
 	return (
 		<SearchContext.Provider
 			value={{
@@ -88,6 +102,7 @@ export const SearchProvider: React.FC<{ children: React.ReactNode }> = ({
 				filteredData,
 				selectedItem,
 				setSelectedItem,
+				isSmallScreen,
 			}}>
 			{children}
 		</SearchContext.Provider>

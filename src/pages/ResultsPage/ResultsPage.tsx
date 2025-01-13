@@ -5,11 +5,23 @@ import ListItem from "../../components/ListItem/ListItem";
 import Card from "../../components/Card/Card";
 
 const ResultsPage: React.FC = () => {
-	const { filteredData, loading, setSelectedItem, selectedItem } = useSearch();
-	//const [selectedItem, setSelectedItem] = useState<ResultItem | null>(null);
+	const {
+		filteredData,
+		loading,
+		setSelectedItem,
+		selectedItem,
+		isSmallScreen,
+	} = useSearch();
+
+	const handleCloseModal = () => {
+		setSelectedItem(null);
+	};
 
 	return (
 		<div className={styles.results_page}>
+			{selectedItem && isSmallScreen && (
+				<div className={styles.modal_overlay}></div>
+			)}
 			<main className={styles.content}>
 				{loading ? (
 					<p>Loading...</p>
@@ -28,7 +40,12 @@ const ResultsPage: React.FC = () => {
 						</ul>
 					</div>
 				)}
-				{selectedItem && <Card item={selectedItem} />}
+				{selectedItem && (
+					<Card
+						item={selectedItem}
+						onClose={handleCloseModal}
+					/>
+				)}
 			</main>
 		</div>
 	);
