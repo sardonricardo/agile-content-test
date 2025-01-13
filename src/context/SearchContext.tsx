@@ -52,6 +52,8 @@ export const SearchProvider: React.FC<{ children: React.ReactNode }> = ({
 	const [searchTerm, setSearchTerm] = useState<string>("");
 	const [selectedItem, setSelectedItem] = useState<ResultItem | null>(null);
 
+	//screen size for responsive design
+	//TODO: Refactor this to use a custom hook
 	const [isSmallScreen, setIsSmallScreen] = useState<boolean>(
 		window.innerWidth < 768
 	);
@@ -81,6 +83,8 @@ export const SearchProvider: React.FC<{ children: React.ReactNode }> = ({
 		}
 	};
 
+	//screen size for responsive design
+	//TODO: Refactor this to use a custom hook
 	useEffect(() => {
 		const handleResize = () => {
 			setIsSmallScreen(window.innerWidth < 768);
