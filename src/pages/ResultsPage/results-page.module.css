@@ -18,6 +18,7 @@
 	display: flex;
 	flex-wrap: wrap;
 	gap: 20px;
+	padding-left: 70px;
 }
 
 .results_list {
@@ -76,12 +77,12 @@
 
 	.results_list {
 		flex: 2;
-		max-width: 60%;
+		max-width: 80%;
 	}
 
 	.result_details {
 		flex: 1;
-		max-width: 40%;
+		max-width: 20%;
 	}
 }
 
