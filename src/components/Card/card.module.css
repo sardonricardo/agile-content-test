@@ -43,6 +43,7 @@
 	.modal {
 		position: static;
 		transform: none;
+		width: 40%;
 	}
 
 	.close_button {
